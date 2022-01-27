@@ -76,8 +76,8 @@ public class breakfastApp {
 				idlyDetails.idly();
 				break;
 			case 4:
-				breakfastApp bills = new breakfastApp();
-				bills.bill();
+				//breakfastApp bills = new breakfastApp();
+				bill();
 				break;
 			case 5:
 				System.exit(0);

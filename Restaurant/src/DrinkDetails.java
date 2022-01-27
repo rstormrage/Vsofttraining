@@ -45,7 +45,7 @@ public class DrinkDetails {
 			dirink_total += tea_bill;
 			System.out.println(caps + " can Sprite: " + tea_bill);
 		}else if (soft == 2) {
-			System.out.println("How many Coffee do you want");
+			System.out.println("How many do you want");
 			int caps = myScan.nextInt();
 			coffee_bill = caps * coffee_price;
 			dirink_total += coffee_bill;
