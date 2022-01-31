@@ -1,5 +1,6 @@
 package com.sms.details;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.sms.bean.User;
@@ -10,10 +11,10 @@ import com.sms.dao.Impl.StaffDaoImpl;
 
 public class StaffDetails {
 	
-	Scanner sc = new Scanner(System.in);
-	StaffDaoImpl daoImpl = new StaffDaoImpl();
+	static Scanner sc = new Scanner(System.in);
+	static StaffDaoImpl daoImpl = new StaffDaoImpl();
 	
-	public void accountMenu() {
+	public static void accountMenu() {
 		//boolean loop = true;
 		while(true) {
 			System.out.println("------------------------------------------");
@@ -30,11 +31,12 @@ public class StaffDetails {
 				accountMenu();
 				break;
 			case 2:
+				ArrayList<User> view = daoImpl.viewAllStaff();
 				User viewAllUsers[] = daoImpl.viewAllStaffs();
 				System.out.println("-------------------------------------------------------------------");
 				System.out.println("User ID     User Name     Email ");	
 				System.out.println("-------------------------------------------------------------------");
-				if(viewAllUsers != null) {
+				/*if(viewAllUsers != null) {
 					for(User user: viewAllUsers) {
 						if(user != null) {
 							System.out.println(user.toString());
@@ -42,7 +44,8 @@ public class StaffDetails {
 					}
 				}else {
 					System.out.println("User information is not available");
-				}
+				}*/
+				System.out.println(view);
 				accountMenu();
 				break;
 			case 3:

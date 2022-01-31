@@ -18,10 +18,9 @@ public class User {
 	}
 	
 	
-	public User(String userName, String passWord) {
+	public User() {
 		
-		this.userName = userName;
-		this.passWord = passWord;
+		
 	}
 	
 
@@ -78,7 +77,7 @@ public class User {
 		return "User [id=" + id + ", first_name=" + first_name + ", last_name=" + last_name + ", email=" + email + "]";
 	}
 	
-	public boolean equals(Object obj) {
+	/*public boolean equals(Object obj) {
 		if(this == obj)
 			return true;
 		if(obj == null)
@@ -93,6 +92,6 @@ public class User {
 			return false;
 		}
 		return true;
-	}
+	}*/
 
 }

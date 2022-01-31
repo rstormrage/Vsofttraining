@@ -1,5 +1,6 @@
 package com.sms.dao.Impl;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.sms.bean.User;
@@ -8,9 +9,10 @@ public class StaffDaoImpl {
 	
 	static User addUsers[] = new User[50];
 	public static int pointer = 0;
-	Scanner sc = new Scanner(System.in);
+	static ArrayList<User> list = new ArrayList<>();
+	static Scanner sc = new Scanner(System.in);
 	
-	public void register() {
+	public static void register() {
 		System.out.println("Enter Staff ID");
 		int id = sc.nextInt();
 		System.out.println("Enter Staff First Name");
@@ -25,11 +27,12 @@ public class StaffDaoImpl {
 		String passWord = sc.next();			
 		User user = new User(id, first_name, last_name, email, userName, passWord);
 		addUsers[pointer] = user;
+		list.add(user);
 		System.out.println("Staff " + id + " Information Registred");
 		pointer =+ 1;
 	}
 	
-	public void addStaffs() {
+	public static void addStaffs() {
 		System.out.println("How many staff do you want to register");
 		int size = sc.nextInt();
 		
@@ -47,6 +50,7 @@ public class StaffDaoImpl {
 			System.out.println("Enter PassWord");
 			String passWord = sc.next();			
 			User user = new User(id, first_name, last_name, email, userName, passWord);
+			list.add(user);
 			addUsers[i] = user;
 			System.out.println("Staff " + (i + 1) + " Information Registred");
 		}
@@ -56,6 +60,11 @@ public class StaffDaoImpl {
 	public User[] viewAllStaffs() {
 		return addUsers;
 	}
+	
+	public ArrayList<User> viewAllStaff(){
+		return list;
+	}
+	
 	
 	public User viewStaff(int id) {
 		if(addUsers != null) {
@@ -68,14 +77,13 @@ public class StaffDaoImpl {
 	}
 	
 	public boolean logIn(String userName, String passWord) {
-		if(addUsers != null) {
-			for(int i = 0; i < pointer; i++) {
+		
+			for(int i = 0; i < 50; i++) {
 				if(addUsers[i].getUserName().equals(userName)) {
 					if(addUsers[i].getPassWord().equals(passWord)) {
 						return true;
 					}
 				}
-			}
 		}
 		return false;		 
 	}

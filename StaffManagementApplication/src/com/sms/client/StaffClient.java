@@ -11,7 +11,7 @@ public class StaffClient {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		StaffDaoImpl daoImpl = new StaffDaoImpl();
-		StaffDetails details = new StaffDetails();
+		//StaffDetails details = new StaffDetails();
 		while (true) {
 			System.out.println("------------------------------------------");
 			System.out.println("                 1)Register               ");
@@ -24,7 +24,7 @@ public class StaffClient {
 			switch(choice) {
 			case 1:
 				daoImpl.register();
-				
+				StaffClient.main(null);
 				break;
 				
 			case 2:
@@ -32,7 +32,7 @@ public class StaffClient {
 				String userName = sc.next();
 				System.out.println("Enter your PassWord: ");
 				String passWord = sc.next();
-				User user = new User(userName, passWord);
+				
 				
 				boolean flag = daoImpl.logIn(userName, passWord);
 				if(flag == false) {
