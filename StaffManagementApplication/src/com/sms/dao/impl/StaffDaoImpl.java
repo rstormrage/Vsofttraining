@@ -47,7 +47,7 @@ public class StaffDaoImpl {
 			System.out.println("Enter PassWord");
 			String passWord = sc.next();			
 			User user = new User(id, first_name, last_name, email, userName, passWord);
-			addUsers[pointer] = user;
+			addUsers[i] = user;
 			System.out.println("Staff " + (i + 1) + " Information Registred");
 		}
 		pointer =+ size;
