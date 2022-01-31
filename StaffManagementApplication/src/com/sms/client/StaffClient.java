@@ -1,29 +1,42 @@
 package com.sms.client;
 
 import java.util.Scanner;
+
+import com.sms.dao.impl.StaffDaoImpl;
 import com.sms.details.StaffDetails;
 
 public class StaffClient {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		StaffDaoImpl daoImpl = new StaffDaoImpl();
 		while (true) {
 			System.out.println("------------------------------------------");
-			System.out.println("                1)Staff                   ");
-			System.out.println("                2)Exit                    ");
+			System.out.println("                 1)Register               ");
+			System.out.println("                 2)login                  ");
+			System.out.println("                 3)Exit                   ");
 			System.out.println("------------------------------------------");
 			
-			System.out.println("Enter The Choice ");
+			System.out.println("Enter your choice ");
 			int choice = sc.nextInt();
-			switch (choice) {
+			switch(choice) {
 			case 1:
-				StaffDetails details = new StaffDetails();
-				details.staMenu();
+				daoImpl.register();
+				
 				break;
+				
 			case 2:
-				System.out.println("Thanks for using");
-				System.exit(0);
-			default:
-				System.out.println("Choose 1 or 2");
+				System.out.println("Enter your UserName: ");
+				String userName = sc.next();
+				System.out.println("Enter your PassWord: ");
+				String passWord = sc.next();
+				boolean flag = daoImpl.logIn(userName, passWord);
+				if(flag == false) {
+					System.out.println("Your UserName doesn't match your PassWord");
+					break;
+				}else {
+					StaffDetails detail = new StaffDetails();
+					detail.accountMenu();
+				}
 			}
 		}
 	}

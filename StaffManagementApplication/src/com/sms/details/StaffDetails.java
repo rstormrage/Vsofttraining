@@ -3,6 +3,7 @@ package com.sms.details;
 import java.util.Scanner;
 
 import com.sms.bean.User;
+import com.sms.client.StaffClient;
 import com.sms.dao.impl.StaffDaoImpl;
 
 
@@ -13,7 +14,7 @@ public class StaffDetails {
 	StaffDaoImpl daoImpl = new StaffDaoImpl();
 	
 	public void accountMenu() {
-		boolean loop = true;
+		//boolean loop = true;
 		while(true) {
 			System.out.println("------------------------------------------");
 			System.out.println("                1)AddUser                 ");
@@ -62,8 +63,8 @@ public class StaffDetails {
 				}
 				break;
 			case 4:
-				StaffDetails detail = new StaffDetails();
-				detail.staMenu();
+				StaffClient client = new StaffClient();
+				client.main(null);
 			default:
 				System.out.println("Choose 1 to 4");
 			}
@@ -71,7 +72,7 @@ public class StaffDetails {
 	}
 	
 
-	public void staMenu() {
+	/*public void staMenu() {
 		
 		while(true) {
 			System.out.println("------------------------------------------");
@@ -103,6 +104,6 @@ public class StaffDetails {
 				}
 			}
 		}
-	}
+	}*/
 
 }
