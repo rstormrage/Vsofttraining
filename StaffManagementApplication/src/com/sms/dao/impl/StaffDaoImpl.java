@@ -1,7 +1,7 @@
 package com.sms.dao.impl;
 
 import java.util.Scanner;
-
+import java.util.HashSet;
 import com.sms.bean.User;
 
 public class StaffDaoImpl {

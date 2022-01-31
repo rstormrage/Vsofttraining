@@ -16,7 +16,13 @@ public class User {
 		this.userName = userName;
 		this.passWord = passWord;
 	}
-
+	
+	
+	public User(String userName, String passWord) {
+		
+		this.userName = userName;
+		this.passWord = passWord;
+	}
 	
 
 	public int getId() {
@@ -72,5 +78,21 @@ public class User {
 		return "User [id=" + id + ", first_name=" + first_name + ", last_name=" + last_name + ", email=" + email + "]";
 	}
 	
+	public boolean equals(Object obj) {
+		if(this == obj)
+			return true;
+		if(obj == null)
+			return false;
+		if(getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if(userName == null) {
+			if(other.userName != null)
+				return false;
+		}else if(!userName.equals(other.userName)) {
+			return false;
+		}
+		return true;
+	}
 
 }
