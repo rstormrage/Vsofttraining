@@ -1,7 +1,7 @@
-package com.sms.dao.impl;
+package com.sms.dao.Impl;
 
 import java.util.Scanner;
-import java.util.HashSet;
+
 import com.sms.bean.User;
 
 public class StaffDaoImpl {
@@ -68,10 +68,16 @@ public class StaffDaoImpl {
 	}
 	
 	public boolean logIn(String userName, String passWord) {
-		
-		
-		return true;
-		 
+		if(addUsers != null) {
+			for(int i = 0; i < pointer; i++) {
+				if(addUsers[i].getUserName().equals(userName)) {
+					if(addUsers[i].getPassWord().equals(passWord)) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;		 
 	}
 	
 

@@ -1,15 +1,13 @@
 package com.sms.client;
 
 import java.util.Scanner;
-import java.util.Set;
-import java.util.HashSet;
-import java.util.Iterator;
-import com.sms.dao.impl.StaffDaoImpl;
+
+import com.sms.dao.Impl.StaffDaoImpl;
 import com.sms.details.StaffDetails;
 import com.sms.bean.*;
 
 public class StaffClient {
-	static HashSet<User> set = new HashSet<>();
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		StaffDaoImpl daoImpl = new StaffDaoImpl();
@@ -35,26 +33,23 @@ public class StaffClient {
 				System.out.println("Enter your PassWord: ");
 				String passWord = sc.next();
 				User user = new User(userName, passWord);
-				boolean sr = set.contains(user);
-				if(!sr) {
-					System.out.println("User does not exist");
-				}else {
-					Iterator<User> iterator = set.iterator();
-					while(iterator.hasNext()) {
-						User user2 = iterator.next();
-						if(user2.getUserName().equals(userName) && user2.getPassWord().equals(passWord)) {
-							details.accountMenu();
-						}
-					}
-				}
-				/*boolean flag = daoImpl.logIn(userName, passWord);
+				
+				boolean flag = daoImpl.logIn(userName, passWord);
 				if(flag == false) {
 					System.out.println("Your UserName doesn't match your PassWord");
 					break;
 				}else {
+					System.out.println("Log in successfully");
 					StaffDetails detail = new StaffDetails();
 					detail.accountMenu();
-				}*/
+				}
+			case 3:
+				System.out.println("Thanks for using");
+				System.exit(0);
+				break;				
+			default:
+				System.out.println("Enter 1 to 3");
+				break;
 			}
 		}
 	}

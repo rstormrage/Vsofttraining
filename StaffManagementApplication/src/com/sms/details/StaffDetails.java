@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import com.sms.bean.User;
 import com.sms.client.StaffClient;
-import com.sms.dao.impl.StaffDaoImpl;
+import com.sms.dao.Impl.StaffDaoImpl;
 
 
 
