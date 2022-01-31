@@ -35,8 +35,8 @@ public class StaffDaoImpl {
 	public static void addStaffs() {
 		System.out.println("How many staff do you want to register");
 		int size = sc.nextInt();
-		
-		for (int i = pointer; i < pointer + size; i++) {
+		int temp_pointer = pointer;
+		for (int i = temp_pointer; i < temp_pointer + size; i++) {
 			System.out.println("Enter Staff ID");
 			int id = sc.nextInt();
 			System.out.println("Enter Staff First Name");
@@ -53,8 +53,9 @@ public class StaffDaoImpl {
 			list.add(user);
 			addUsers[i] = user;
 			System.out.println("Staff " + (i + 1) + " Information Registred");
+			pointer ++;
 		}
-		pointer =+ size;
+		//pointer =+ size;
 	}
 	
 	public User[] viewAllStaffs() {
@@ -79,11 +80,13 @@ public class StaffDaoImpl {
 	public boolean logIn(String userName, String passWord) {
 		
 			for(int i = 0; i < 50; i++) {
-				if(addUsers[i].getUserName().equals(userName)) {
-					if(addUsers[i].getPassWord().equals(passWord)) {
-						return true;
+				if(addUsers[i] != null) {
+					if(addUsers[i].getUserName().equals(userName)) {
+						if(addUsers[i].getPassWord().equals(passWord)) {
+							return true;
+						}
 					}
-				}
+				}else return false;
 		}
 		return false;		 
 	}

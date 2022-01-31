@@ -36,7 +36,7 @@ public class StaffDetails {
 				System.out.println("-------------------------------------------------------------------");
 				System.out.println("User ID     User Name     Email ");	
 				System.out.println("-------------------------------------------------------------------");
-				/*if(viewAllUsers != null) {
+				if(viewAllUsers != null) {
 					for(User user: viewAllUsers) {
 						if(user != null) {
 							System.out.println(user.toString());
@@ -44,8 +44,8 @@ public class StaffDetails {
 					}
 				}else {
 					System.out.println("User information is not available");
-				}*/
-				System.out.println(view);
+				}
+				//System.out.println(view);
 				accountMenu();
 				break;
 			case 3:
